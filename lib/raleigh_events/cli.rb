@@ -1,6 +1,8 @@
-#Our CLI controller
+# CLI controller
 class RaleighEvents::CLI
 
+  # Call method will greet the user then list all of the events
+  # User will see a menu to learn more info about a particular event
   def call 
     puts "Raleigh's events:"
     list_events
@@ -18,6 +20,7 @@ class RaleighEvents::CLI
     end
   end
 
+  # Interactive with the user, showing the list of events
   def menu 
     input = nil
     while input != "exit"
@@ -36,19 +39,7 @@ class RaleighEvents::CLI
       end
     end
   end
-  #     case input 
-  #     when "1"
-  #       puts "More info on event 1..."
-  #     when "2"
-  #       puts "More info on event 2..."
-  #     when "list"
-  #       list_events
-  #     else 
-  #       puts "Not sure what you want, type list or exit."
-  #     end
-
-  #   end
-  # end 
+ 
   def goodbye
     puts "See you tomorrow for more events!!!"
   end
