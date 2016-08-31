@@ -4,7 +4,6 @@ class RaleighEvents::CLI
   # Call method will greet the user then list all of the events
   # User will see a menu to learn more info about a particular event
   def call 
-    puts "Raleigh's events:"
     list_events
     menu
     goodbye
@@ -12,7 +11,7 @@ class RaleighEvents::CLI
 
   def list_events
     #Here doc http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
-    puts "Upcoming events:"
+    puts "Upcoming events in Raleigh:"
     @events = RaleighEvents::Event.upcoming #theres an object called Event that has a class method #upcoming that returns these events
     
     @events.each.with_index(1) do |event, i|
