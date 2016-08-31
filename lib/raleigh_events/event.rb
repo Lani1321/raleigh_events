@@ -15,18 +15,15 @@ class RaleighEvents::Event
         new_event = self.new  
         new_event.title = event.css("#template-name-link").text.strip
         
-        # need to clean up with gsub for example
-        # "\n         \n      The Raleigh Times Bar\n   â\u0080¢ Raleigh\n  
         location = event.css(".location-bar").text.gsub("â\u0080¢", "").strip
         location_array = location.split(/\s+(?=(?:[^"]*"[^"]*")*[^"]*$)/)
         location_array.pop
         new_event.location = location_array.join(' ')
 
-        # need to clean up by removing event price: optios are $ or 'Free'
-        date = event.css(".experience-extra-details").text.gsub(/Free/, "").strip 
-        new_event.date = date.gsub(/-\n/, "").strip
-        # Added Https://www.get-offline.com because the html element url only had the second half of url 
-        # "/inspiration/jam-with-beer-banjos-every-tuesday"
+        
+        date = event.css(".experience-extra-details").children.last.text 
+        new_event.date = date.gsub(/\n/, "").strip
+        
         new_event.url =  "https://www.get-offline.com#{event.attribute('href')}"
         # binding.pry 
         events << new_event
