@@ -1,28 +1,10 @@
-# RaleighEvents
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/raleigh_events`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'raleigh_events'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install raleigh_events
+You can install this gem via `gem install raleigh_events`. The raleigh_events CLI will be installed and you can run raleigh_events to get a list of fun things to do in the Raleigh-Durham area as well as any additional information on a specific event.
 
 ## Usage
 
-TODO: Write usage instructions here
+Run: `raleigh_events` after installing the gem.
 
 ## Development
 
