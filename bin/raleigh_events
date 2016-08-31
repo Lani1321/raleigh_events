@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby 
 
-# require './lib/raleigh_events' #anything that needs my enviro can just load it throuogh this one line call
+require '../lib/raleigh_events' #anything that needs my enviro can just load it throuogh this one line call
 
 require "bundler/setup"
-require "raleigh_events"
+# require "raleigh_events"
 
-RaleighEvents::CLI.new.call #creates a new instance of my controller CLI, calls the call method on it, which starts set of dominos that lists events, gets the user enu then says goodbye
+RaleighEvents::CLI.new.call #create a new instance of my controller CLI, calls the call method on it, which starts set of dominos that lists events, gets the user enu then says goodbye
 
 #this is the file that im running
