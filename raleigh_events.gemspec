@@ -24,7 +24,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "pry"
 
   spec.add_dependency "nokogiri"  #if I take out this dependency then require 'nokogiri' in lib/raleigh_events.rb doesn't work...so I know that it's loading it from the bundler path
 end
