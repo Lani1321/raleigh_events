@@ -10,9 +10,10 @@ class RaleighEvents::CLI
   end
 
   def list_events
-    #Here doc http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
     puts "Upcoming events in Raleigh:"
-    @events = RaleighEvents::Event.upcoming #theres an object called Event that has a class method #upcoming that returns these events
+
+    # Theres an object called Event that has a class method #upcoming that returns these events
+    @events = RaleighEvents::Event.upcoming 
     
     @events.each.with_index(1) do |event, i|
       puts "#{i}. #{event.title}"
@@ -21,14 +22,16 @@ class RaleighEvents::CLI
 
   # Interactive with the user, showing the list of events
   def menu 
-    input = nil
+
+    # Need to instantiate a new variable so my while loop doesn't break
+    input = nil   
     while input != "exit"
       puts "Enter the number of the event you'd like more info on or type list to see the events again or type exit: "
       input = gets.strip.downcase
       puts "\n"
-      #strings that are integers will convert to 0, if its an actual integer then it will be greater than 0
+      # Strings that are integers will convert to 0, if its an actual integer then it will be greater than 0
       if input.to_i > 0           
-         #want the array index of this event
+        # Want the array index of this event
         the_event = @events[input.to_i-1]  
         puts "Event: " "#{the_event.title} \n" "When: " "#{the_event.date} \n" "Venue: " "#{the_event.location} \n" "More Info: " "#{the_event.url}"  #reading out of these objescts, instead of hard coding into strings
       elsif input == "list"
