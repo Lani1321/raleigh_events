@@ -10,12 +10,14 @@ class RaleighEvents::CLI
   end
 
   def list_events
+   
     puts "Upcoming events in Raleigh:"
 
     # Theres an object called Event that has a class method #upcoming that returns these events
-    @events = RaleighEvents::Event.upcoming 
+    RaleighEvents::Event.scrape_events
+    # @events = RaleighEvents::Event.upcoming 
     
-    @events.each.with_index(1) do |event, i|
+    RaleighEvents::Event.all.each.with_index(1) do |event, i|
       puts "#{i}. #{event.title}"
     end
   end
@@ -32,7 +34,7 @@ class RaleighEvents::CLI
       # Strings that are integers will convert to 0, if its an actual integer then it will be greater than 0
       if input.to_i > 0           
         # Want the array index of this event
-        the_event = @events[input.to_i-1]  
+        the_event = RaleighEvents::Event.all[input.to_i-1]  
         puts "Event: " "#{the_event.title} \n" "When: " "#{the_event.date} \n" "Venue: " "#{the_event.location} \n" "More Info: " "#{the_event.url}"  #reading out of these objescts, instead of hard coding into strings
       elsif input == "list"
         list_events
